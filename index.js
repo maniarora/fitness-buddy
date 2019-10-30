@@ -7,7 +7,7 @@ const { helpers } = require('./helpers.js')
 /* CONSTANTS */
 const SKILL_NAME = 'Fitness Buddy';
 const NEXT_EXCERCISE_MESSAGE = 'Here\'s your next exercise: ';
-const HELP_MESSAGE = 'Fitness Buddy helps you with exercise recommendations and keeping track of your workout.';
+const HELP_MESSAGE = 'Fitness Buddy helps you with exercise recommendations and keeping track of your workout. For example, you can say its chest day, or new record for bench press at 50 kilograms';
 const HELP_REPROMPT = HELP_MESSAGE + 'So, What can I help you with?';
 const STOP_MESSAGE = 'Goodbye!';
 
@@ -38,10 +38,10 @@ const WelcomeIntentHandler = {
       let lastSessionInDays = (Date.now() - sessionAttributes.lastSessionDate) / (24 * 60 * 60 * 1000) // today minus last session (both in millis) divided by no. of millis in a day, to yield # of days
       lastSessionInDays = Math.floor(lastSessionInDays)
       const lastSessionString = (lastSessionInDays > 0) ? `${lastSessionInDays} days ago` : `less than a day ago`
-      response = `Welcome back! You were last here ${lastSessionString}. What part of your body do you want to train today?`
+      response = `Welcome back! You last exercised with this skill ${lastSessionString}. How can I help you today?`
     }
     else {
-      response = `Hi There. Looks like this is your first time here.  How can I help you?`
+      response = `Hi There. Looks like this is your first time here.  You can interact with the skill by requesting exercises for body parts, or updating your personal best for exercises. For more information, just say help!`
     }
     //update last alexa response in dynamodb
     await helpers.updatePersistentAttributes(handlerInput, { lastAlexaResponse: response })
