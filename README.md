@@ -1,6 +1,8 @@
 # fitness-buddy
 Alexa skill built to guide you in your fitness journey. 
+
 Fitness buddy can recommend specific exercises based on the muscle/body part you wish to train, as well as track progress for each workout. 
+
 Developed as part of the Alexa Master Skill Builders Program - a 12 week program to ideate, design, develop and publish an Alexa Skill.
 
 ## Sample invocations include:
